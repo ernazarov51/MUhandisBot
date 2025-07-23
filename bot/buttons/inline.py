@@ -11,7 +11,7 @@ async def make_inline_group(groups,is_admin=False):
             )
         )
     if is_admin:
-        keyboard.add(InlineKeyboardButton(text="🛠Admin panel",url='https://preview-okmk-admin-panel-kzmoki68j1ou9fyt08yg.vusercontent.net'))
+        keyboard.add(InlineKeyboardButton(text="🛠Admin panel",url='https://preview-okmk-admin-panel-kzmgu9zhtkpifk92ei5m.vusercontent.net'))
     keyboard.adjust(2)
     return keyboard.as_markup()
 

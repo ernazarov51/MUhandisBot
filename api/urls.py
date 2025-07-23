@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL=' https://35404821272c.ngrok-free.app/api/v1/'
+BASE_URL='https://muhandisschedular-2.onrender.com/api/v1/'
 groups=BASE_URL+'groups'
 sciences=BASE_URL+'sciences'
 rooms=BASE_URL+'rooms'

@@ -1,7 +1,10 @@
 from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-async def make_inline_group(groups,is_admin=False):
+from api import urls
+from secure import encrypt_message
+
+async def make_inline_group(groups,is_admin=False,admin_id=None):
     keyboard = InlineKeyboardBuilder()
     for group in groups:
         keyboard.add(
@@ -10,8 +13,9 @@ async def make_inline_group(groups,is_admin=False):
                 callback_data=f"group^{group['id']}^{group['name']}"
             )
         )
-    if is_admin:
-        keyboard.add(InlineKeyboardButton(text="🛠Admin panel",url='https://preview-okmk-admin-panel-kzmgu9zhtkpifk92ei5m.vusercontent.net'))
+    if is_admin and admin_id:
+        decrypted_id=encrypt_message(str(admin_id))
+        keyboard.add(InlineKeyboardButton(text="🛠Admin panel",url=urls.frontend_url+f'?admin_id={decrypted_id}'))
     keyboard.adjust(2)
     return keyboard.as_markup()
 

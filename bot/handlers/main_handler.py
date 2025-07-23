@@ -13,7 +13,7 @@ async def command_start_handler(message: Message) -> None:
     groups=scripts.get_data(urls.groups)
     admins=os.getenv("ADMIN").split(',')
     is_admin=True if str(message.from_user.id) in admins else False
-    ikb= await make_inline_group(groups,is_admin)
+    ikb= await make_inline_group(groups,is_admin,message.from_user.id)
     await message.answer(f"Assalomu Alaykum, {html.bold(message.from_user.full_name)}!\n📚 Guruhingizni tanlang",reply_markup=ikb)
 
 @main_router.callback_query(F.data.startswith('group'))
